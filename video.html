@@ -1,0 +1,227 @@
+<!---ESTILO VIDEOPLAYER/SLIDER---->
+<style>
+    #video-container {
+     position: relative;
+     width: 100%;
+     height: 400px;
+     overflow: hidden;
+     border-radius: 10px;
+    }
+    
+    video {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+          }
+    
+            .overlay {
+    
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background: url(https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/dots-mini-light.png) center center no-repeat;
+                /*background-size: contain;*/
+                background-color: #0f5494;
+                background-repeat: repeat;
+                opacity: 0.3;
+            }
+    
+            .overlay-content {
+    
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                
+            }
+    
+            .custom-button {
+                /*position: absolute;
+                top: 8px;
+                left: 16px;*/
+                /*transform: translate(100%, 50%);*/
+                background-color: #4CAF50;
+                /*color: white;*/
+                padding: 10px 20px;
+                /*font-size: 16px;*/
+                border: none;
+                cursor: pointer;
+                height: 80px;
+                width: 150px;
+            }
+    
+            .topright {
+                position: absolute;
+                top: 45%;
+                right: 15%;
+                font-size: 18px;
+                color: #FAFAFA;
+            }
+    
+            .topleft {
+                position: absolute;
+                top: 46%;
+                left: 16%;
+                font-size: 18px;
+                color: #FAFAFA;
+            }
+    
+            @media only screen and (max-width: 768px) {
+             /* For mobile phones: */
+             .topright {
+                /*right:30%;*/
+                top:60%;
+             }
+    
+             .topleft {
+                top:30%;
+                left:0;
+                padding-right:20px;
+                padding-left:20px;
+                text-align:center;
+    
+             }
+    }
+    
+            .custom-font {
+                text-shadow: 2px 2px #00000075;
+                font-size: 30px;
+                /*background-color: #4CAF50;*/
+            }
+    
+    
+    
+            /*ESTILO SLIDER*/
+            
+    
+            .mySlides {
+                display: none;
+                /*height: 80px*/
+            }
+    
+            img {
+                vertical-align: middle;
+            }
+    
+            /* Slideshow container */
+            .slideshow-container {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+    
+    
+            .active,
+            .dot:hover {
+                background-color: #717171;
+            }
+    
+            /* Fading animation */
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+    
+            @keyframes fade {
+                from {
+                    opacity: .4
+                }
+    
+                to {
+                    opacity: 1
+                }
+            }
+    
+            /* On smaller screens, decrease text size */
+            @media only screen and (max-width: 300px) {
+    
+    
+                .text {
+                    font-size: 11px
+                }
+            }
+    
+    </style>
+    
+    <!--CODIGO VIDEOPLAYER/SLIDER--->
+    <div>
+        <div id="video-container" >
+            <video id="meuVideo"  autoplay muted loop>
+                <source src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/VIDEOSITEFATECV4.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="overlay"></div>
+            <div class="overlay-content">
+                <button class="topright cps-btn__destaque" onClick="parent.location='https://fatecitu.cps.sp.gov.br/infraestrutura/'">Conheça a Fatec Itu</button>
+                <h1 class="topleft custom-font">
+    
+                    <div class="slideshow-container">
+    
+                        <div class="mySlides fade">
+                            <div class="custom-font">16 anos fazendo história em Itu</div>
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="custom-font">Cursos de graduação 100% GRATUITOS</div>
+                        </div>
+    
+                        <div class="mySlides fade">
+                            <div class="custom-font">Cursos presenciais e a distância</div>
+                        </div>
+    
+                    </div>
+    
+    
+                </h1>
+    
+    
+    
+            </div>
+    
+    
+        </div>
+        </div>
+    
+    <!--SCRIPT VIDEOPLAYER/SLIDER--->
+    
+    <script>
+            //RESPONSÁVEL PELA APRESENTAÇÃO DE SLIDES
+            let slideIndex = 1;
+            showSlides(slideIndex);
+    
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+    
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+    
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                //let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+    
+                slides[slideIndex - 1].style.display = "block";
+    
+            }
+    
+            function suaFuncao() {
+                console.log('Intervalo executado!');
+            }
+    
+            function automaticSlider() {
+                plusSlides(1);
+    
+            }
+    
+            setInterval(automaticSlider, 12500); // Chama suaFuncao a cada 12,5 segundos
+        </script>

@@ -1,0 +1,275 @@
+<!-- SLIDER INICIO -->   
+<style>
+    * {box-sizing:border-box}
+  
+  /* Slideshow container */
+  .slideshow-container {
+  /*max-width: 1000px;*/
+  position: relative;
+  margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+  display: none;
+  overflow: hidden;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+  /*background-color: #7fffd44d; */
+  /* color: #f2f2f2; */
+  font-size: 15px;
+  /* padding: 8px 12px; */
+  position: absolute;
+  bottom: 17%;
+  width: 100%;
+  text-align: center;
+  padding-right: 50%;
+  }
+  
+  /* Slider Content */
+  
+  .slide-content {
+  display: grid;
+  background-color: rgb(241 241 241 / 80%);
+  padding: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  /*height: 200px;*/
+  border-radius: 10px;
+  box-shadow: inset 3px -3px 7px 0px #cbcbcb;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  min-height: 200px;
+  }
+  
+  /*****************************************/
+  .slide-content button {
+  /*background-color: #007bff; */ /* Cor do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none; /* Remover borda do botão */
+  padding: 10px 20px; /* Espaçamento interno do botão */
+  border-radius: 5px; /* Cantos arredondados do botão */
+  cursor: pointer; /* Cursor ao passar o mouse */
+  font-size: 16px; /* Tamanho do texto do botão */
+  }
+  
+  .column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  }
+  
+  .slide-content:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+  
+  /*.slide-content:hover {
+  background-color: rgb(241 241 241 / 90%);
+  }*/
+  
+  /*****************************************/
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+  background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+  }
+  
+  
+  /*MOBILE*/
+  
+  @media only screen and (min-width: 950px) {
+  .slide-background{
+  width: 100%;
+  }
+  }
+  
+  @media only screen and (max-width: 950px) {
+  
+  
+  .slide-content {
+  display: grid;
+  background-color: rgb(215 215 215 / 95%);
+  padding: 10px;
+  border-radius: 10px;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  justify-items: center;
+  margin-bottom: 30px;
+  margin-left: 57px;
+  /*teste*/ 
+  margin-right: 0%;
+  }
+  
+  .text {
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  /*teste*/
+  padding-right: 0;
+  }
+  
+  }
+  </style>
+  
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+  
+    <!-- Full-width images with number and caption text -->
+  
+  
+    <div class="mySlides fade">
+      <!--<div class="numbertext">1 / 5</div> -->
+      <img class="slide-background" src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2023/09/cpa2.jpg">
+      <div class="text"><div class="slide-content">
+      <h2>Você conhece Comissão Própria de Avaliação?</h2>
+      <p>Você já ouviu falar na Comissão Própria de Avaliação da Fatec Itu? Clique no botão para mais informações.</p>
+      <button class="cps-btn__destaque" onClick="parent.location='https://fatecitu.cps.sp.gov.br/cpa-comissao-propria-de-avaliacao/'">Saiba Mais</button>
+      </div></div>
+    </div>
+  
+    <div class="mySlides fade">
+      <!--<div class="numbertext">1 / 5</div> -->
+      <img class="slide-background" src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2023/09/miss_vis_val.jpg">
+      <div class="text"><div class="slide-content">
+                      <h2>Missão, Visão e Valores Fatec Itu</h2>
+                      <p>Você conhece a missão, visão e valores da Fatec Itu? Clique no botão para mais informações.</p>
+                      <button class="cps-btn__destaque" onClick="parent.location='https://fatecitu.cps.sp.gov.br/missao-visao-e-valores/'">Saiba Mais</button>
+                  </div></div>
+    </div>
+  
+    <div class="mySlides fade">
+      <!--<div class="numbertext">1 / 5</div> -->
+      <img class="slide-background" src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2023/09/ideathon2.jpg">
+      <div class="text"><div class="slide-content">
+                      <h2>Alunos da Fatec Itu são premiados no IdeathON 2023</h2>
+                      <p>O evento ocorreu no dia 2 de setembro em Tatuí com a finalidade de promover cultura empreendedora.</p>
+                      <button class="cps-btn__destaque" onClick="parent.location='https://fatecitu.cps.sp.gov.br/alunos-da-fatec-itu-sao-premiados-no-ideathon-2023/'">Saiba Mais</button>
+                  </div></div>
+    </div>
+  
+    
+  
+  
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  
+  </div>
+  
+  
+  <script>
+    let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+  showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+  showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+  slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+  dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  }
+  
+  // Função para avançar automaticamente após 10 segundos
+  function automaticSlide() {
+    plusSlides(1); // Chama plusSlides com o parâmetro 1 para avançar para o próximo slide
+  }
+  
+  // Inicializa o slider automático
+  setInterval(automaticSlide, 13500); // Chama a função automaticSlide a cada 13,5 segundos (13500 milissegundos)
+  
+  </script>
+  
+  <!-- SLIDER FIM -->
