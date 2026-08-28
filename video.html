@@ -1,227 +1,599 @@
-<!---ESTILO VIDEOPLAYER/SLIDER---->
+
+<!-- =========================================================
+     VIDEO PLAYER / HERO SLIDER — INÍCIO
+     =========================================================
+     
+     Componente utilizado como destaque principal da página.
+
+     Estrutura:
+     - Vídeo em segundo plano
+     - Overlay gráfico
+     - Chamada para ação
+     - Mensagens rotativas
+
+     O componente utiliza CSS e JavaScript isolados para
+     evitar conflitos com outros elementos do site.
+     ========================================================= -->
+
+
 <style>
-    #video-container {
-     position: relative;
-     width: 100%;
-     height: 400px;
-     overflow: hidden;
-     border-radius: 10px;
+
+    /* =========================================================
+       CONTAINER PRINCIPAL
+       ========================================================= */
+
+    .cps-video-hero {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
     }
-    
-    video {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-          }
-    
-            .overlay {
-    
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                background: url(https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/dots-mini-light.png) center center no-repeat;
-                /*background-size: contain;*/
-                background-color: #0f5494;
-                background-repeat: repeat;
-                opacity: 0.3;
-            }
-    
-            .overlay-content {
-    
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                
-            }
-    
-            .custom-button {
-                /*position: absolute;
-                top: 8px;
-                left: 16px;*/
-                /*transform: translate(100%, 50%);*/
-                background-color: #4CAF50;
-                /*color: white;*/
-                padding: 10px 20px;
-                /*font-size: 16px;*/
-                border: none;
-                cursor: pointer;
-                height: 80px;
-                width: 150px;
-            }
-    
-            .topright {
-                position: absolute;
-                top: 45%;
-                right: 15%;
-                font-size: 18px;
-                color: #FAFAFA;
-            }
-    
-            .topleft {
-                position: absolute;
-                top: 46%;
-                left: 16%;
-                font-size: 18px;
-                color: #FAFAFA;
-            }
-    
-            @media only screen and (max-width: 768px) {
-             /* For mobile phones: */
-             .topright {
-                /*right:30%;*/
-                top:60%;
-             }
-    
-             .topleft {
-                top:30%;
-                left:0;
-                padding-right:20px;
-                padding-left:20px;
-                text-align:center;
-    
-             }
+
+
+    /* =========================================================
+       VIDEO
+       ========================================================= */
+
+    .cps-video-hero__video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
-    
-            .custom-font {
-                text-shadow: 2px 2px #00000075;
-                font-size: 30px;
-                /*background-color: #4CAF50;*/
-            }
-    
-    
-    
-            /*ESTILO SLIDER*/
-            
-    
-            .mySlides {
-                display: none;
-                /*height: 80px*/
-            }
-    
-            img {
-                vertical-align: middle;
-            }
-    
-            /* Slideshow container */
-            .slideshow-container {
-                max-width: 1000px;
-                position: relative;
-                margin: auto;
-            }
-    
-    
-            .active,
-            .dot:hover {
-                background-color: #717171;
-            }
-    
-            /* Fading animation */
-            .fade {
-                animation-name: fade;
-                animation-duration: 1.5s;
-            }
-    
-            @keyframes fade {
-                from {
-                    opacity: .4
-                }
-    
-                to {
-                    opacity: 1
-                }
-            }
-    
-            /* On smaller screens, decrease text size */
-            @media only screen and (max-width: 300px) {
-    
-    
-                .text {
-                    font-size: 11px
-                }
-            }
-    
-    </style>
-    
-    <!--CODIGO VIDEOPLAYER/SLIDER--->
-    <div>
-        <div id="video-container" >
-            <video id="meuVideo"  autoplay muted loop>
-                <source src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/VIDEOSITEFATECV4.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
-            <div class="overlay"></div>
-            <div class="overlay-content">
-                <button class="topright cps-btn__destaque" onClick="parent.location='https://fatecitu.cps.sp.gov.br/infraestrutura/'">Conheça a Fatec Itu</button>
-                <h1 class="topleft custom-font">
-    
-                    <div class="slideshow-container">
-    
-                        <div class="mySlides fade">
-                            <div class="custom-font">16 anos fazendo história em Itu</div>
-                        </div>
-    
-                        <div class="mySlides fade">
-                            <div class="custom-font">Cursos de graduação 100% GRATUITOS</div>
-                        </div>
-    
-                        <div class="mySlides fade">
-                            <div class="custom-font">Cursos presenciais e a distância</div>
-                        </div>
-    
-                    </div>
-    
-    
-                </h1>
-    
-    
-    
+
+
+    /* =========================================================
+       OVERLAY
+       =========================================================
+       
+       Camada utilizada para aplicar a textura e a tonalidade
+       azul sobre o vídeo, facilitando a leitura do conteúdo.
+       ========================================================= */
+
+    .cps-video-hero__overlay {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: #0f5494;
+        background-image: url("https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/dots-mini-light.png");
+        background-position: center center;
+        background-repeat: repeat;
+
+        opacity: 0.3;
+
+        pointer-events: none;
+    }
+
+
+    /* =========================================================
+       ÁREA DE CONTEÚDO
+       ========================================================= */
+
+    .cps-video-hero__content {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* =========================================================
+       BOTÃO PRINCIPAL
+       =========================================================
+       
+       O elemento é um link porque sua função é levar o usuário
+       para outra página.
+       ========================================================= */
+
+    .cps-video-hero__button {
+        position: absolute;
+
+        top: 50%;
+        right: 15%;
+
+        transform: translateY(-50%);
+
+        font-size: 18px;
+        color: #fafafa;
+    }
+
+
+    /* =========================================================
+       TÍTULO / MENSAGEM
+       ========================================================= */
+
+    .cps-video-hero__headline {
+        position: absolute;
+
+        top: 50%;
+        left: 16%;
+
+        transform: translateY(-50%);
+
+        max-width: 50%;
+
+        font-size: 30px;
+
+        color: #fafafa;
+
+        text-shadow: 2px 2px #00000075;
+    }
+
+
+    /* =========================================================
+       SLIDER DE MENSAGENS
+       ========================================================= */
+
+    .cps-video-hero__slider {
+        position: relative;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+
+    /*
+     * Os slides permanecem ocultos até serem ativados pelo
+     * JavaScript.
+     */
+
+    .cps-video-hero__slide {
+        display: none;
+    }
+
+    .cps-video-hero__slide.is-active {
+        display: block;
+    }
+
+
+    /* =========================================================
+       ANIMAÇÃO
+       ========================================================= */
+
+    .cps-video-hero__slide.is-entering {
+        animation: cps-video-hero-fade 1.5s;
+    }
+
+
+    @keyframes cps-video-hero-fade {
+
+        from {
+            opacity: 0.4;
+        }
+
+        to {
+            opacity: 1;
+        }
+
+    }
+
+
+    /* =========================================================
+       ACESSIBILIDADE — REDUÇÃO DE MOVIMENTO
+       =========================================================
+       
+       Usuários que solicitaram redução de movimento no sistema
+       não recebem a animação de transição.
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .cps-video-hero__slide.is-entering {
+            animation: none;
+        }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media only screen and (max-width: 768px) {
+
+        .cps-video-hero__button {
+            top: 60%;
+            right: 15%;
+        }
+
+
+        .cps-video-hero__headline {
+            top: 30%;
+            left: 0;
+
+            width: 100%;
+            max-width: none;
+
+            padding-right: 20px;
+            padding-left: 20px;
+
+            text-align: center;
+        }
+
+    }
+
+
+    /* =========================================================
+       TELAS MUITO PEQUENAS
+       ========================================================= */
+
+    @media only screen and (max-width: 300px) {
+
+        .cps-video-hero__headline {
+            font-size: 11px;
+        }
+
+    }
+
+</style>
+
+
+<!-- =========================================================
+     VIDEO PLAYER / HERO
+     ========================================================= -->
+
+<section
+    class="cps-video-hero"
+    aria-label="Destaques da Fatec Itu"
+>
+
+    <!-- =====================================================
+         VÍDEO DE FUNDO
+         ===================================================== -->
+
+    <video
+        class="cps-video-hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+    >
+
+        <source
+            src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/39/2024/02/VIDEOSITEFATECV4.mp4"
+            type="video/mp4"
+        >
+
+        Seu navegador não suporta o elemento de vídeo.
+
+    </video>
+
+
+    <!-- =====================================================
+         OVERLAY
+         ===================================================== -->
+
+    <div
+        class="cps-video-hero__overlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <div class="cps-video-hero__content">
+
+
+        <!-- =================================================
+             MENSAGENS
+             ================================================= -->
+
+        <div
+            class="cps-video-hero__headline"
+            aria-live="polite"
+        >
+
+            <div class="cps-video-hero__slider">
+
+
+                <!-- =========================================
+                     SLIDE 1
+                     ========================================= -->
+
+                <div class="cps-video-hero__slide">
+
+                    16 anos fazendo história em Itu
+
+                </div>
+
+
+                <!-- =========================================
+                     SLIDE 2
+                     ========================================= -->
+
+                <div class="cps-video-hero__slide">
+
+                    Cursos de graduação 100% GRATUITOS
+
+                </div>
+
+
+                <!-- =========================================
+                     SLIDE 3
+                     ========================================= -->
+
+                <div class="cps-video-hero__slide">
+
+                    Cursos presenciais e a distância
+
+                </div>
+
+
             </div>
-    
-    
+
         </div>
-        </div>
-    
-    <!--SCRIPT VIDEOPLAYER/SLIDER--->
-    
-    <script>
-            //RESPONSÁVEL PELA APRESENTAÇÃO DE SLIDES
-            let slideIndex = 1;
-            showSlides(slideIndex);
-    
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-    
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-    
-            function showSlides(n) {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                //let dots = document.getElementsByClassName("dot");
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
+
+
+        <!-- =================================================
+             CHAMADA PARA AÇÃO
+             =================================================
+             
+             Um link é utilizado porque o objetivo do elemento
+             é realizar uma navegação.
+             ================================================= -->
+
+        <a
+            class="cps-btn__destaque cps-video-hero__button"
+            href="https://fatecitu.cps.sp.gov.br/infraestrutura/"
+        >
+            Conheça a Fatec Itu
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCRIPT — SLIDER DE MENSAGENS
+     ========================================================= -->
+
+<script>
+
+    /*
+     * =========================================================
+     * VIDEO PLAYER / SLIDER
+     * =========================================================
+     *
+     * O código é encapsulado em uma função para impedir que
+     * variáveis e funções sejam adicionadas ao escopo global
+     * da página.
+     *
+     * Isso é especialmente importante em um ambiente WordPress,
+     * onde vários widgets podem compartilhar a mesma página.
+     * =========================================================
+     */
+
+    (() => {
+
+        /*
+         * -----------------------------------------------------
+         * CONFIGURAÇÕES
+         * -----------------------------------------------------
+         */
+
+        const SLIDE_INTERVAL = 12500;
+
+
+        /*
+         * -----------------------------------------------------
+         * ELEMENTOS
+         * -----------------------------------------------------
+         */
+
+        const hero =
+            document.querySelector('.cps-video-hero');
+
+        if (!hero) {
+            return;
+        }
+
+
+        const slides = Array.from(
+            hero.querySelectorAll(
+                '.cps-video-hero__slide'
+            )
+        );
+
+
+        /*
+         * Não inicializa o slider caso nenhum slide tenha sido
+         * encontrado.
+         */
+
+        if (!slides.length) {
+            return;
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * ESTADO
+         * -----------------------------------------------------
+         */
+
+        let currentIndex = 0;
+        let autoplayTimer = null;
+
+
+        /*
+         * -----------------------------------------------------
+         * MOSTRAR SLIDE
+         * -----------------------------------------------------
+         */
+
+        function showSlide(index) {
+
+            /*
+             * O operador módulo permite voltar ao primeiro
+             * slide automaticamente depois do último.
+             */
+
+            currentIndex =
+                (index + slides.length) % slides.length;
+
+
+            slides.forEach((slide, slideIndex) => {
+
+                const isActive =
+                    slideIndex === currentIndex;
+
+
+                slide.classList.toggle(
+                    'is-active',
+                    isActive
+                );
+
+
+                slide.classList.remove(
+                    'is-entering'
+                );
+
+
+                /*
+                 * Reinicia a animação sempre que o slide muda.
+                 */
+
+                if (isActive) {
+
+                    void slide.offsetWidth;
+
+                    slide.classList.add(
+                        'is-entering'
+                    );
+
                 }
-    
-                slides[slideIndex - 1].style.display = "block";
-    
+
+            });
+
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * PRÓXIMO SLIDE
+         * -----------------------------------------------------
+         */
+
+        function nextSlide() {
+
+            showSlide(currentIndex + 1);
+
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * AUTOPLAY
+         * -----------------------------------------------------
+         */
+
+        function startAutoplay() {
+
+            stopAutoplay();
+
+            autoplayTimer = setInterval(
+                nextSlide,
+                SLIDE_INTERVAL
+            );
+
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * PARAR AUTOPLAY
+         * -----------------------------------------------------
+         */
+
+        function stopAutoplay() {
+
+            if (autoplayTimer !== null) {
+
+                clearInterval(autoplayTimer);
+
+                autoplayTimer = null;
+
             }
-    
-            function suaFuncao() {
-                console.log('Intervalo executado!');
+
+        }
+
+
+        /*
+         * -----------------------------------------------------
+         * VISIBILIDADE DA PÁGINA
+         * -----------------------------------------------------
+         *
+         * Não há necessidade de continuar alternando as
+         * mensagens enquanto o usuário está em outra aba.
+         * -----------------------------------------------------
+         */
+
+        document.addEventListener(
+            'visibilitychange',
+            () => {
+
+                if (document.hidden) {
+
+                    stopAutoplay();
+
+                } else {
+
+                    startAutoplay();
+
+                }
+
             }
-    
-            function automaticSlider() {
-                plusSlides(1);
-    
-            }
-    
-            setInterval(automaticSlider, 12500); // Chama suaFuncao a cada 12,5 segundos
-        </script>
+        );
+
+
+        /*
+         * -----------------------------------------------------
+         * REDUÇÃO DE MOVIMENTO
+         * -----------------------------------------------------
+         *
+         * Caso o usuário tenha configurado o sistema para
+         * reduzir animações, o slider permanece no primeiro
+         * slide em vez de iniciar o autoplay.
+         * -----------------------------------------------------
+         */
+
+        const prefersReducedMotion =
+            window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            );
+
+
+        /*
+         * -----------------------------------------------------
+         * INICIALIZAÇÃO
+         * -----------------------------------------------------
+         */
+
+        showSlide(0);
+
+
+        if (!prefersReducedMotion.matches) {
+
+            startAutoplay();
+
+        }
+
+    })();
+
+</script>
+
+
+<!-- =========================================================
+     VIDEO PLAYER / HERO — FIM
+     ========================================================= -->
+
