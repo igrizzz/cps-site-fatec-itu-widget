@@ -212,5 +212,3 @@ O projeto não pretende ser uma biblioteca ou framework completo.
 
 Se alguma parte deste código for útil para você, fique à vontade para utilizá-la, estudá-la ou melhorá-la.
 
-```
-```
